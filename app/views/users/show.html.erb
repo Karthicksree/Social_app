@@ -1,0 +1,26 @@
+<h2>My Profile</h2>
+<p>Full Name: <%=@user.profile.full_name %></p>
+<p>Email: <%=@user.email %></p>
+<p>Cell Phone: <%=@user.profile.cell_phone %></p>
+<p>Birth Day: <%=@user.profile.birth_day %></p>
+<p>Gender: <%=@user.profile.gender %></p>
+<p>Location: <%=@user.profile.location %></p>
+<p><%= link_to "Find Friends", users_path %></p>
+
+<%# nil.test! %> 
+<h2>Your Friends</h2>
+<ul>
+  <% for friendship in @user.friendships %>
+  <li>
+    <%= friendship.friend.profile.full_name %>
+    (<%= link_to "remove", friendship, :method => :delete %>)
+  </li>
+  <% end %>  
+</ul>
+
+<h2>Friended by Users</h2>
+<ul>
+  <% for user in @user.inverse_friends %>
+    <li><%= user.profile.full_name %></li>
+  <% end %>
+</ul>

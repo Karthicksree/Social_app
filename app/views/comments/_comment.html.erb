@@ -1,0 +1,8 @@
+<b><%= comment.user.profile.full_name %></b>
+<p>
+  <b>Comment:</b>
+  <%= comment.body %>
+  <%= link_to "Like", like_comment_path(comment), method: :put %> <%= comment.get_likes.size %>
+<%= link_to "Unlike", dislike_comment_path(comment), method: :put %> <%= comment.get_dislikes.size  %>
+<%#nil.test!%>
+</p>

@@ -1,0 +1,74 @@
+<!-- <div class="tab-pane fade" id="create"> -->
+<!-- <div id="legend">
+                                <legend class="">Create Account</legend>
+                            </div>     -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name),:id=>"tab") do |f| %>
+         <%= devise_error_messages! %>
+            <!-- <label>Email</label> -->
+            <%= f.email_field :email, autofocus: true,:class=>"form-control input-sm ",:placeholder=>"Email" %><br/>
+
+            <!-- <label>Password</label> -->
+            <%= f.password_field :password, autocomplete: "off",:class=>"form-control",:placeholder=>"Password" %>
+
+            <!-- <label>Password Confirmation</label> -->
+            <%= f.password_field :password_confirmation, autocomplete: "off",:class=>"form-control" ,:placeholder=>"Password Confirmation"%><br/>
+
+            <%= f.fields_for :profile,@user.build_profile do |d| %>
+                <!-- <label>Full Name</label> -->
+                <%= d.text_field :full_name,:class=>"form-control" ,:placeholder=>"Full Name"%>
+                     
+                <!-- <label>Cell_phone</label> -->
+                <%= d.text_field :cell_phone,:class=>"form-control",:placeholder=>"Cell Phone" %><br/>
+
+                <!-- <label>Birth Day</label> -->
+                <%= d.text_field :birth_day,:class=>"datepicker form-control",:placeholder=>"Birth Day" %>
+
+                <!-- <label>Gender</label> -->
+                <%= d.select :gender, collection: [:male, :female] %><br/>
+
+                <!-- <label>Location</label> -->
+                <%= d.text_field :location,:class=>"form-control",:placeholder=>"Location" %>
+            <% end %><br>
+                        
+            <div>
+                <%= f.submit "Create Account",:class=>"btn btn-primary" %>
+            </div>
+    <% end %>
+<!-- </div> -->
+<!-- <h2>Sign up</h2>
+
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= devise_error_messages! %>
+
+ 
+  <%#= f.email_field :email, autofocus: true,:class=>"form-control",:placeholder=>"Email" %>
+
+ 
+    <%#= f.password_field :password, autocomplete: "off",:class=>"form-control",:placeholder=>"Password" %>
+
+  
+    <%#= f.password_field :password_confirmation, autocomplete: "off",:class=>"form-control" ,:placeholder=>"Password Confirmation"%></div>
+
+    <%#= f.fields_for :profile,@user.build_profile do |d| %>
+    
+    <%#= d.text_field :full_name,:class=>"form-control" ,:placeholder=>"Full Name"%>
+
+    <div><%#= d.label :cell_phone %><br>
+    <%#= d.text_field :cell_phone,:class=>"form-control",:placeholder=>"Cell Phone" %></div>
+
+    <div><%#= d.label :birth_day %><br>
+    <%#= d.text_field :birth_day,:class=>"datepicker form-control",:placeholder=>"Birth Day" %></div>
+
+    <div><%#= d.label :gender %><br>
+    <%#= d.select :gender, collection: [:male, :female] %></div>
+
+    <div><%#= d.label :location %><br>
+    <%#= d.text_field :location,:class=>"form-control",:placeholder=>"Location" %></div>
+
+    <%# end %><br>
+  <div><%#= f.submit "Sign up",:class=>"btn btn-primary" %></div>
+<%# end %> -->
+
+<%#= render "devise/shared/links" %>
+
+

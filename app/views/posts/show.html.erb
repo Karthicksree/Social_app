@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<strong> <%=@post.user.profile.full_name%></strong>
+<!-- <%#nil.test! %> -->
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <strong>Attachment:</strong>
+
+<%if @post.attachment.content_type.include? 'image' %>
+    <%= image_tag @post.attachment.url %>
+                              
+<% else %>
+ <%= video_tag @post.attachment.url,:controls => true,:autobuffer => true %>
+
+<% end %>  
+</p>
+<%= link_to "Like", like_post_path(@post), method: :put,:class=>"like_post" %> 
+<%= link_to "Unlike", dislike_post_path(@post), method: :put,:class=>"unlike_post" %>
+<strong>Likes:</strong>
+<%= @post.get_likes.size %>
+<strong>Unlikes:</strong>
+<%= @post.get_dislikes.size  %>
+<strong>comments:</strong>
+<%= @post.comments.size %>
+
+
+<%#nil.test! %>
+
+<!-- <p>
+  <strong>User:</strong>
+  <%#= @post.user %>
+</p> -->
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

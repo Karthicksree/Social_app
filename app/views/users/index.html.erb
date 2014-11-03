@@ -1,0 +1,63 @@
+<h1>Listing users</h1>
+
+
+<% for user in @users %>
+<% if current_user.email == user.email %>
+  <div class="user" style="display:none">
+    <p>
+      <strong><%= user.profile.full_name %></strong>
+      <%= link_to "Addss Friend", friendships_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+  <% else %>
+
+  <div class="user">
+    <p>
+      <strong><%= user.profile.full_name %></strong>
+      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+
+  <% end %>
+<% end %>
+
+<!-- <table>
+  <thead>
+    <tr>
+    -->   <!-- <th>Id</th> -->
+      <!-- <th>Email</th> -->
+      <!-- <th>Cell phone</th>
+      <th>Birth day</th>
+      <th>Gender</th>
+      <th>Location</th>
+     
+      <th colspan="3"></th> -->
+  <!--   </tr>
+  </thead> -->
+
+ <!--  <tbody>
+    <%# @users.each do |user| %>
+      <tr> -->
+      <!-- <td><%#= user.id %></td> -->
+        <!-- <td><%#= user.email %></td> -->
+        <!-- <td><%#= profile.cell_phone %></td>
+   <td><%#= profile.birth_day %></td>
+        <td><%#= profile.gender %></td>
+        <td><%#= profile.location %></td>-->
+        
+       <!--  <td><%#= link_to 'Show', user %></td>
+        <td><%#= link_to 'Edit', edit_profile_path(profile) %></td>
+        <td><%#= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ -->
+        
+
+  <!--     </tr>
+    <%# end %>
+  </tbody>
+</table>
+
+<br> -->
+
+<%#= link_to 'New Profile', new_profile_path %>
